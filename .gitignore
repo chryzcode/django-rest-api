@@ -1,4 +1,8 @@
 .sec
+<<<<<<< HEAD
+=======
+.sqlite3
+>>>>>>> 46decec69f94a01efb5b773d31d8851eb5701ea1
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
