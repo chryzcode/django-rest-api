@@ -10,6 +10,8 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import mixins
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -17,6 +19,9 @@ class GenericApiView(generics.GenericAPIView, mixins.ListModelMixin, mixins.Crea
                         mixins.UpdateModelMixin, mixins.RetrieveModelMixin,  mixins.DestroyModelMixin):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+    authentication_classes=[SessionAuthentication, BasicAuthentication]
+    #authentication_classes=[TokenAuthentication]
+    permission_classes=[IsAuthenticated]
 
     lookup_field = 'id'
 
